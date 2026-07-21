@@ -54,18 +54,36 @@
               <span id="resultCount" class="numeric">0 results</span>
             </div>
             <div class="panel-heading__actions">
-              <div class="group-filter" aria-label="Filter result groups">
-                <button class="group-filter__button" type="button" data-group="term" aria-label="Term" aria-pressed="true">
+              <div class="group-filter" aria-label="Filter article categories">
+                <button class="group-filter__button" type="button" data-category="general" aria-label="General programming vocabulary" aria-pressed="true">
                   <i data-lucide="book-marked" aria-hidden="true"></i>
-                  <span class="group-filter__tooltip">Term</span>
+                  <span class="group-filter__tooltip">General programming vocabulary</span>
                 </button>
-                <button class="group-filter__button" type="button" data-group="similar" aria-label="Similar" aria-pressed="true">
+                <button class="group-filter__button" type="button" data-category="confused" aria-label="Commonly confused terms and syntax" aria-pressed="true">
                   <i data-lucide="notebook-tabs" aria-hidden="true"></i>
-                  <span class="group-filter__tooltip">Similar</span>
+                  <span class="group-filter__tooltip">Commonly confused terms and syntax</span>
                 </button>
-                <button class="group-filter__button" type="button" data-group="syntax" aria-label="Syntax" aria-pressed="true">
+                <button class="group-filter__button" type="button" data-category="javascript" aria-label="JavaScript" aria-pressed="true">
                   <i data-lucide="braces" aria-hidden="true"></i>
-                  <span class="group-filter__tooltip">Syntax</span>
+                  <span class="group-filter__tooltip">JavaScript</span>
+                </button>
+                <button class="group-filter__button" type="button" data-category="html" aria-label="HTML" aria-pressed="true">
+                  <!-- HTML and CSS use small local SVGs so their syntax remains recognisable. -->
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m8 9-4 3 4 3"></path>
+                    <path d="m16 9 4 3-4 3"></path>
+                    <path d="m14 5-4 14"></path>
+                  </svg>
+                  <span class="group-filter__tooltip">HTML</span>
+                </button>
+                <button class="group-filter__button" type="button" data-category="css" aria-label="CSS" aria-pressed="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M10 3 8 21"></path>
+                    <path d="M16 3 14 21"></path>
+                    <path d="M4 9h16"></path>
+                    <path d="M3 15h16"></path>
+                  </svg>
+                  <span class="group-filter__tooltip">CSS</span>
                 </button>
               </div>
             </div>

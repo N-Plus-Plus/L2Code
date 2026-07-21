@@ -436,10 +436,12 @@ const state = {
   selectedSlug: "",
   breadcrumbs: [],
   query: "",
-  activeGroups: {
-    term: true,
-    similar: true,
-    syntax: true
+  activeCategories: {
+    general: true,
+    confused: true,
+    javascript: true,
+    html: true,
+    css: true
   }
 };
 
@@ -456,7 +458,7 @@ const els = {
   searchInput: document.querySelector("#searchInput"),
   clearSearch: document.querySelector("#clearSearch"),
   breadcrumbs: document.querySelector("#vocabularyBreadcrumbs"),
-  groupButtons: Array.from(document.querySelectorAll("[data-group]")),
+  categoryButtons: Array.from(document.querySelectorAll("[data-category]")),
   resultCount: document.querySelector("#resultCount"),
   resultsList: document.querySelector("#resultsList"),
   emptyState: document.querySelector("#emptyState"),
@@ -468,11 +470,19 @@ init();
 
 async function init() {
   try {
-    const glossaryMarkdown = window.GLOSSARY_MARKDOWN || await fetchMarkdown("data.md");
-    const javascriptMarkdown = window.JAVASCRIPT_MARKDOWN || await fetchMarkdown("javascript.md");
+    const [glossaryMarkdown, javascriptMarkdown, htmlMarkdown, cssMarkdown, confusedWebMarkdown] = await Promise.all([
+      window.GLOSSARY_MARKDOWN || fetchMarkdown("data.md"),
+      window.JAVASCRIPT_MARKDOWN || fetchMarkdown("javascript.md"),
+      window.HTML_VOCABULARY_MARKDOWN || fetchMarkdown("html-vocabulary.md"),
+      window.CSS_VOCABULARY_MARKDOWN || fetchMarkdown("css-vocabulary.md"),
+      window.CONFUSED_WEB_VOCABULARY_MARKDOWN || fetchMarkdown("confused-web-vocabulary.md")
+    ]);
     state.entries = [
       ...parseGlossary(glossaryMarkdown, { source: "general" }),
-      ...parseGlossary(javascriptMarkdown, { source: "javascript" })
+      ...parseGlossary(javascriptMarkdown, { source: "javascript" }),
+      ...parseGlossary(htmlMarkdown, { source: "html" }),
+      ...parseGlossary(cssMarkdown, { source: "css" }),
+      ...parseGlossary(confusedWebMarkdown, { source: "confused" })
     ];
     applyFilter();
     bindEvents();
@@ -498,7 +508,7 @@ function bindEvents() {
   }
 
   els.searchInput.addEventListener("input", (event) => {
-    state.query = event.target.value.trim().toLowerCase();
+    state.query = normaliseSearchTerm(event.target.value);
     clearBreadcrumbs();
     applyFilter();
   });
@@ -530,10 +540,10 @@ function bindEvents() {
     selectEntry(link.dataset.vocabLink, { mode: "link" });
   });
 
-  for (const button of els.groupButtons) {
+  for (const button of els.categoryButtons) {
     button.addEventListener("click", () => {
-      const group = button.dataset.group;
-      state.activeGroups[group] = !state.activeGroups[group];
+      const category = button.dataset.category;
+      state.activeCategories[category] = !state.activeCategories[category];
       applyFilter();
     });
   }
@@ -619,9 +629,10 @@ function parseGlossary(markdown, options = {}) {
 
     if (termMatch) {
       if (active) entries.push(finaliseEntry(active));
-      const term = termMatch[1].trim();
+      const term = termMatch[1].trim().replace(/^`|`$/g, "");
       active = {
         term,
+        id: `${source}-${slugify(term)}`,
         slug: `${source}-${slugify(term)}`,
         category,
         source,
@@ -642,24 +653,53 @@ function finaliseEntry(entry) {
     .filter((line) => line.trim() !== "---")
     .join("\n")
     .trim();
-  const isBundle = entry.category === "Commonly Confused Terms";
+  const categoryId = entry.source === "general" && entry.category === "Commonly Confused Terms"
+    ? "confused"
+    : entry.source;
+  const isBundle = categoryId === "confused";
   const isJavaScript = entry.source === "javascript";
   const isJavaScriptReference = isJavaScript && entry.category.length !== 1;
   const isJavaScriptBundle = entry.category === "Commonly Confused JavaScript Terms";
-  const groups = isJavaScriptBundle
-    ? ["syntax", "similar"]
-    : [isJavaScript ? "syntax" : isBundle ? "similar" : "term"];
+  const type = getEntryMetadata(body, "Type");
+  const introducedGrade = Number(getEntryMetadata(body, "Introduced grade")) || null;
+  const aliases = splitMetadataTerms(getEntryMetadata(body, "Aliases"));
+  const relatedTerms = splitMetadataTerms(getEntryMetadata(body, "Related terms", { allowFollowingLine: true }));
   return {
     ...entry,
+    categoryId,
     isBundle,
     isJavaScript,
     isJavaScriptReference,
     isJavaScriptBundle,
-    groups,
-    searchTerms: getSearchTerms(entry.term, { isBundle: isBundle || isJavaScriptBundle, isJavaScriptReference }),
+    type,
+    introducedGrade,
+    aliases,
+    relatedTerms,
+    searchTerms: getSearchTerms(entry.term, {
+      aliases,
+      isBundle: isBundle || isJavaScriptBundle,
+      isJavaScriptReference
+    }),
     body,
     plainText: stripMarkdown(body).toLowerCase()
   };
+}
+
+function getEntryMetadata(body, label, options = {}) {
+  const escapedLabel = escapeRegExp(label);
+  const inlineMatch = body.match(new RegExp(`\\*\\*${escapedLabel}:\\*\\*[ \\t]*([^\\n]*)`, "i"));
+  if (inlineMatch && inlineMatch[1].trim()) return inlineMatch[1].trim();
+  if (!options.allowFollowingLine) return "";
+  const followingLineMatch = body.match(new RegExp(`\\*\\*${escapedLabel}:\\*\\*\\s*\\n+([^\\n]+)`, "i"));
+  return followingLineMatch ? followingLineMatch[1].trim() : "";
+}
+
+function splitMetadataTerms(value) {
+  if (!value) return [];
+  return value
+    .split(/,|\s+\band\b\s+(?=[`<:@.#*\w-]+$)/i)
+    .map((term) => term.trim().replace(/^`|`$/g, ""))
+    .filter(Boolean);
 }
 
 function selectEntry(slug, options = {}) {
@@ -724,7 +764,7 @@ function scrollSelectedEntryIntoView() {
 function applyFilter() {
   const query = state.query;
   state.filtered = state.entries.filter((entry) => {
-    if (!entry.groups.some((group) => state.activeGroups[group])) return false;
+    if (!state.activeCategories[entry.categoryId]) return false;
     if (!query) return true;
     return entry.searchTerms.some((term) => term.startsWith(query));
   });
@@ -742,7 +782,7 @@ function render() {
   renderResults();
   renderDetail();
   renderBreadcrumbs();
-  renderGroupFilters();
+  renderCategoryFilters();
   renderAppArea();
   els.resultCount.textContent = `${state.filtered.length} ${state.filtered.length === 1 ? "result" : "results"}`;
   refreshIcons();
@@ -768,9 +808,9 @@ function renderAppArea() {
   refreshIcons();
 }
 
-function renderGroupFilters() {
-  for (const button of els.groupButtons) {
-    button.setAttribute("aria-pressed", String(state.activeGroups[button.dataset.group]));
+function renderCategoryFilters() {
+  for (const button of els.categoryButtons) {
+    button.setAttribute("aria-pressed", String(state.activeCategories[button.dataset.category]));
   }
 }
 
@@ -781,25 +821,17 @@ function renderResults() {
   const fragment = document.createDocumentFragment();
   for (const entry of state.filtered) {
     const button = document.createElement("button");
-    const modifierClass = entry.isJavaScriptBundle
-      ? " result-item--bundle result-item--javascript-bundle"
-      : entry.isJavaScriptReference
-      ? " result-item--javascript result-item--javascript-reference"
-      : entry.isJavaScript
-        ? " result-item--javascript"
-        : entry.isBundle
-          ? " result-item--bundle"
-          : "";
+    const modifierClass = ` result-item--${entry.categoryId}`;
     button.className = `result-item${modifierClass}`;
     button.type = "button";
     button.dataset.slug = entry.slug;
     button.setAttribute("role", "option");
     button.setAttribute("aria-selected", String(entry.slug === state.selectedSlug));
-    const icon = entry.isJavaScriptBundle || entry.isBundle ? "notebook-tabs" : entry.isJavaScript ? "braces" : "book-marked";
     button.innerHTML = `
-      <span class="result-item__icon"><i data-lucide="${icon}" aria-hidden="true"></i></span>
+      <span class="result-item__icon">${createCategoryIconMarkup(entry.categoryId)}</span>
       <span class="result-item__text">
         <span class="result-item__term">${renderEntryTerm(entry)}</span>
+        <span class="result-item__type">${escapeHtml(entry.type || getCategoryLabel(entry.categoryId))}</span>
       </span>
       <i data-lucide="chevron-right" class="result-item__chevron" aria-hidden="true"></i>
     `;
@@ -851,9 +883,35 @@ function renderDetail() {
   els.detailContent.innerHTML = `
     <div class="detail-header">
       <h2>${renderEntryTerm(entry)}</h2>
+      <div class="detail-header__meta">
+        <span class="category-badge category-badge--${entry.categoryId}">${createCategoryIconMarkup(entry.categoryId)} ${escapeHtml(getCategoryLabel(entry.categoryId))}</span>
+        ${entry.type ? `<span>${escapeHtml(entry.type)}</span>` : ""}
+        ${entry.introducedGrade ? `<span>Introduced grade ${entry.introducedGrade}</span>` : ""}
+      </div>
     </div>
     <div class="definition-body definition-body--accent-${getEntryAccent(entry)}">${renderMarkdown(entry.body, { accent: getEntryAccent(entry), entry })}</div>
   `;
+}
+
+function getCategoryLabel(categoryId) {
+  return {
+    general: "General programming vocabulary",
+    confused: "Commonly confused terms and syntax",
+    javascript: "JavaScript",
+    html: "HTML",
+    css: "CSS"
+  }[categoryId] || categoryId;
+}
+
+function createCategoryIconMarkup(categoryId) {
+  if (categoryId === "html") {
+    return '<svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 9-4 3 4 3"></path><path d="m16 9 4 3-4 3"></path><path d="m14 5-4 14"></path></svg>';
+  }
+  if (categoryId === "css") {
+    return '<svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 8 21"></path><path d="M16 3 14 21"></path><path d="M4 9h16"></path><path d="M3 15h16"></path></svg>';
+  }
+  const icon = categoryId === "confused" ? "notebook-tabs" : categoryId === "javascript" ? "braces" : "book-marked";
+  return `<i data-lucide="${icon}" aria-hidden="true"></i>`;
 }
 
 function renderReferenceIntro() {
@@ -1199,25 +1257,25 @@ function linkVocabularyTerms(html, currentEntry) {
 
   const template = document.createElement("template");
   template.innerHTML = html;
-  linkVocabularyTextNodes(template.content, currentEntry, pattern);
+  linkVocabularyTextNodes(template.content, currentEntry, pattern, new Set());
   return template.innerHTML;
 }
 
-function linkVocabularyTextNodes(node, currentEntry, pattern) {
+function linkVocabularyTextNodes(node, currentEntry, pattern, linkedTerms) {
   for (const child of Array.from(node.childNodes)) {
     if (child.nodeType === Node.TEXT_NODE) {
-      const fragment = linkVocabularyText(child.textContent, currentEntry, pattern);
+      const fragment = linkVocabularyText(child.textContent, currentEntry, pattern, linkedTerms);
       if (fragment) child.replaceWith(fragment);
       continue;
     }
 
     if (child.nodeType !== Node.ELEMENT_NODE) continue;
     if (["A", "CODE", "PRE", "SCRIPT", "STYLE"].includes(child.tagName)) continue;
-    linkVocabularyTextNodes(child, currentEntry, pattern);
+    linkVocabularyTextNodes(child, currentEntry, pattern, linkedTerms);
   }
 }
 
-function linkVocabularyText(text, currentEntry, pattern) {
+function linkVocabularyText(text, currentEntry, pattern, linkedTerms = new Set()) {
   pattern.lastIndex = 0;
   let match = pattern.exec(text);
   if (!match) return null;
@@ -1227,8 +1285,9 @@ function linkVocabularyText(text, currentEntry, pattern) {
 
   while (match) {
     const matchedText = match[0];
+    const matchedKey = normaliseVocabularyLinkTerm(matchedText);
     const entry = resolveVocabularyLinkEntry(matchedText, currentEntry);
-    if (!entry || entry.slug === currentEntry.slug) {
+    if (!entry || entry.slug === currentEntry.slug || linkedTerms.has(matchedKey)) {
       match = pattern.exec(text);
       continue;
     }
@@ -1243,6 +1302,7 @@ function linkVocabularyText(text, currentEntry, pattern) {
     link.dataset.vocabLink = entry.slug;
     link.textContent = matchedText;
     fragment.appendChild(link);
+    linkedTerms.add(matchedKey);
     cursor = match.index + matchedText.length;
     match = pattern.exec(text);
   }
@@ -1259,7 +1319,17 @@ function resolveVocabularyLinkEntry(term, currentEntry) {
   if (isCurrentEntryLinkTerm(key, currentEntry)) return null;
   const candidates = getVocabularyLinkMap().get(key);
   if (!candidates) return null;
-  return candidates.find((entry) => entry.source === currentEntry.source && entry.slug !== currentEntry.slug)
+  const explicitRelatedTerms = new Set((currentEntry.relatedTerms || []).map(normaliseVocabularyLinkTerm));
+  return candidates.find((entry) => entry.slug !== currentEntry.slug && (
+    explicitRelatedTerms.has(normaliseVocabularyLinkTerm(entry.id))
+    || explicitRelatedTerms.has(normaliseVocabularyLinkTerm(entry.slug))
+    || explicitRelatedTerms.has(normaliseVocabularyLinkTerm(entry.term))
+    || (entry.aliases || []).some((alias) => explicitRelatedTerms.has(normaliseVocabularyLinkTerm(alias)))
+  ))
+    || candidates.find((entry) => entry.source === currentEntry.source && entry.slug !== currentEntry.slug)
+    || (currentEntry.source === "confused"
+      ? candidates.find((entry) => ["html", "css"].includes(entry.source) && entry.slug !== currentEntry.slug)
+      : null)
     || candidates.find((entry) => entry.slug !== currentEntry.slug && !isCodeLikeEntry(entry))
     || null;
 }
@@ -1297,13 +1367,13 @@ function getVocabularyLinkMap() {
 }
 
 function getLinkableEntryTerms(entry) {
-  const terms = [entry.term];
+  const terms = [entry.term, ...(entry.aliases || [])];
   if (entry.isBundle || entry.isJavaScriptBundle) {
     terms.push(...entry.term.split(/\s*(?:!=|,|\band\b)\s*/i));
   }
   return terms
     .map((term) => term.trim())
-    .filter((term) => term.length > 1);
+    .filter((term) => term.length > 1 || /^\\W$/.test(term));
 }
 
 function isCodeLikeEntry(entry) {
@@ -1332,7 +1402,7 @@ function renderSeparatedEntryTerm(term, accent = "similar") {
 
 function splitSeparatedEntryTerm(term) {
   return term
-    .split(/\s*(?:!=|,|\band\b)\s*/i)
+    .split(/\s*(?:!=|,|\band\b|\bvs\.?\b|\bversus\b)\s*/i)
     .map((part) => part.trim())
     .filter(Boolean);
 }
@@ -1379,6 +1449,8 @@ function decorateDisplayNode(node, accent) {
 }
 
 function getEntryAccent(entry) {
+  if (entry.categoryId === "html") return "html";
+  if (entry.categoryId === "css") return "css";
   if (entry.isJavaScriptBundle || entry.isBundle) return "similar";
   if (entry.isJavaScriptReference) return "javascript-reference";
   if (entry.isJavaScript) return "syntax";
@@ -1513,14 +1585,19 @@ function stripMarkdown(value) {
 
 function getSearchTerms(term, options = {}) {
   const cleanTerm = normaliseSearchTerm(term);
+  const aliases = (options.aliases || []).map(normaliseSearchTerm).filter(Boolean);
+  const includeSyntaxFreeVariants = (terms) => Array.from(new Set(terms.flatMap((value) => {
+    const syntaxFree = value.replace(/[<>]/g, "").replace(/^[:.#@*!]+/, "");
+    return syntaxFree && syntaxFree !== value ? [value, syntaxFree] : [value];
+  })));
   if (options.isJavaScriptReference) {
-    return [cleanTerm, ...cleanTerm.split(/\s+/)].filter(Boolean);
+    return includeSyntaxFreeVariants([cleanTerm, ...cleanTerm.split(/\s+/), ...aliases].filter(Boolean));
   }
-  if (!options.isBundle) return [cleanTerm];
-  return cleanTerm
+  if (!options.isBundle) return includeSyntaxFreeVariants([cleanTerm, ...aliases]);
+  return includeSyntaxFreeVariants([...cleanTerm
     .split(/\s*(?:!=|,|\band\b)\s*/i)
     .map((part) => part.trim().toLowerCase())
-    .filter(Boolean);
+    .filter(Boolean), ...aliases]);
 }
 
 function slugify(value) {
