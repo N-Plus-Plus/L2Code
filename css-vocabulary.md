@@ -4,7 +4,6 @@
 ## `CSS`
 
 **Type:** CSS concept
-**Introduced grade:** 1
 **Aliases:** Cascading Style Sheets
 
 **Definition:**
@@ -34,7 +33,6 @@ HTML, stylesheet, CSS rule set
 ## `Stylesheet`
 
 **Type:** CSS concept
-**Introduced grade:** 1
 **Aliases:** CSS file, external stylesheet
 
 **Definition:**
@@ -61,7 +59,6 @@ A stylesheet is a collection of CSS rules, commonly stored in a `.css` file.
 ## `CSS rule set`
 
 **Type:** CSS syntax
-**Introduced grade:** 1
 **Aliases:** CSS rule, ruleset
 
 **Definition:**
@@ -91,7 +88,6 @@ CSS selector, CSS declaration, CSS property
 ## `CSS selector`
 
 **Type:** CSS selector
-**Introduced grade:** 1
 **Aliases:** selector
 
 **Definition:**
@@ -120,7 +116,6 @@ type selector, class selector, ID selector, specificity
 ## `CSS declaration`
 
 **Type:** CSS syntax
-**Introduced grade:** 1
 **Aliases:** declaration
 
 **Definition:**
@@ -148,7 +143,6 @@ CSS property, CSS value, CSS rule set
 ## `CSS property`
 
 **Type:** CSS concept
-**Introduced grade:** 1
 **Aliases:** property
 
 **Definition:**
@@ -177,7 +171,6 @@ CSS declaration, CSS value
 ## `CSS value`
 
 **Type:** CSS concept
-**Introduced grade:** 1
 **Aliases:** value
 
 **Definition:**
@@ -206,7 +199,6 @@ CSS property, CSS unit, CSS function
 ## `Type selector`
 
 **Type:** CSS selector
-**Introduced grade:** 1
 **Aliases:** element selector
 
 **Definition:**
@@ -235,7 +227,6 @@ HTML tag, class selector, specificity
 ## `Class selector`
 
 **Type:** CSS selector
-**Introduced grade:** 1
 **Aliases:** `.class`
 
 **Definition:**
@@ -264,7 +255,6 @@ A class selector targets elements containing a particular class.
 ## `ID selector`
 
 **Type:** CSS selector
-**Introduced grade:** 1
 **Aliases:** `#id`
 
 **Definition:**
@@ -294,7 +284,6 @@ An ID selector targets the element with a particular `id`.
 ## `Universal and grouping selectors`
 
 **Type:** CSS selector
-**Introduced grade:** 1
 **Aliases:** universal selector, `*`, grouping selector
 
 **Definition:**
@@ -331,7 +320,6 @@ CSS selector, box-sizing, CSS rule set
 ## `Cascade`
 
 **Type:** CSS concept
-**Introduced grade:** 1
 **Aliases:** cascading
 
 **Definition:**
@@ -366,7 +354,6 @@ specificity, source order, inheritance, `!important`
 ## `Specificity`
 
 **Type:** CSS concept
-**Introduced grade:** 1
 **Aliases:** selector specificity
 
 **Definition:**
@@ -402,7 +389,6 @@ cascade, selector, source order
 ## `Inheritance`
 
 **Type:** CSS concept
-**Introduced grade:** 1
 **Aliases:** inherited property
 
 **Definition:**
@@ -434,7 +420,6 @@ parent element, cascade, `inherit`
 ## `Box model`
 
 **Type:** CSS concept
-**Introduced grade:** 1
 **Aliases:** CSS box model
 
 **Definition:**
@@ -464,7 +449,6 @@ margin, padding, border, box-sizing
 ## `box-sizing`
 
 **Type:** CSS property
-**Introduced grade:** 1
 **Aliases:** border-box
 
 **Definition:**
@@ -493,7 +477,6 @@ box model, width, padding, border
 ## `margin`
 
 **Type:** CSS property
-**Introduced grade:** 1
 **Aliases:** outer spacing
 
 **Definition:**
@@ -522,7 +505,6 @@ padding, border, box model, logical properties
 ## `padding`
 
 **Type:** CSS property
-**Introduced grade:** 1
 **Aliases:** inner spacing
 
 **Definition:**
@@ -551,7 +533,6 @@ margin, border, box model
 ## `border`
 
 **Type:** CSS property
-**Introduced grade:** 1
 **Aliases:** element border
 
 **Definition:**
@@ -580,7 +561,6 @@ box model, `currentColor`, border-radius
 ## `Size properties`
 
 **Type:** CSS property
-**Introduced grade:** 1
 **Aliases:** `width`, `height`, `min-width`, `max-width`, `min-height`, `max-height`
 
 **Definition:**
@@ -610,7 +590,6 @@ CSS unit, responsive design, `min()`
 ## `Colour properties`
 
 **Type:** CSS property
-**Introduced grade:** 1
 **Aliases:** `color`, `background-color`, foreground colour, background colour
 
 **Definition:**
@@ -640,7 +619,6 @@ body {
 ## `Typography properties`
 
 **Type:** CSS property
-**Introduced grade:** 1
 **Aliases:** `font-family`, `font-size`, `font-weight`, `line-height`, `text-align`
 
 **Definition:**
@@ -671,7 +649,6 @@ heading elements, inheritance, rem
 ## `display`
 
 **Type:** CSS property
-**Introduced grade:** 1
 **Aliases:** display property
 
 **Definition:**
@@ -700,7 +677,6 @@ block and inline layout, Flexbox, CSS Grid, `display: none`
 ## `Block, inline and inline-block`
 
 **Type:** CSS value
-**Introduced grade:** 1
 **Aliases:** `display: block`, `display: inline`, `display: inline-block`
 
 **Definition:**
@@ -730,7 +706,6 @@ display, normal flow, box model
 ## `display: grid`
 
 **Type:** CSS layout system
-**Introduced grade:** 1
 **Aliases:** Grid container
 
 **Definition:**
@@ -760,7 +735,6 @@ CSS Grid, `place-items`, grid template
 ## `place-items`
 
 **Type:** CSS property
-**Introduced grade:** 1
 **Aliases:** place items
 
 **Definition:**
@@ -790,7 +764,6 @@ CSS Grid, `align-items`, `justify-items`
 ## `cursor`
 
 **Type:** CSS property
-**Introduced grade:** 1
 **Aliases:** cursor property
 
 **Definition:**
@@ -819,7 +792,6 @@ button {
 ## `CSS units`
 
 **Type:** CSS concept
-**Introduced grade:** 1
 **Aliases:** `px`, `rem`, `em`, `%`, `vh`, `vw`, viewport units
 
 **Definition:**
@@ -853,7 +825,6 @@ responsive design, size properties, typography
 ## `CSS comment`
 
 **Type:** CSS syntax
-**Introduced grade:** 1
 **Aliases:** comment
 
 **Definition:**
@@ -885,7 +856,6 @@ HTML comment, JavaScript comment, source code
 ## `Pseudo-class`
 
 **Type:** CSS pseudo-class
-**Introduced grade:** 2
 **Aliases:** pseudo class
 
 **Definition:**
@@ -914,7 +884,6 @@ CSS selector, pseudo-element, element state
 ## `:hover`
 
 **Type:** CSS pseudo-class
-**Introduced grade:** 2
 **Aliases:** hover state
 
 **Definition:**
@@ -943,7 +912,6 @@ pseudo-class, interaction, transition
 ## `:focus` and `:focus-visible`
 
 **Type:** CSS pseudo-class
-**Introduced grade:** 2
 **Aliases:** focus state, focus-visible
 
 **Definition:**
@@ -973,7 +941,6 @@ keyboard accessibility, tabindex, outline
 ## `:disabled`
 
 **Type:** CSS pseudo-class
-**Introduced grade:** 2
 **Aliases:** disabled state
 
 **Definition:**
@@ -1003,7 +970,6 @@ disabled, pseudo-class, opacity
 ## `:valid` and `:invalid`
 
 **Type:** CSS pseudo-class
-**Introduced grade:** 2
 **Aliases:** valid state, invalid state
 
 **Definition:**
@@ -1032,7 +998,6 @@ validation attributes, form, accessibility
 ## `Attribute selector`
 
 **Type:** CSS selector
-**Introduced grade:** 2
 **Aliases:** `[attribute]`
 
 **Definition:**
@@ -1061,7 +1026,6 @@ HTML attribute, CSS selector, specificity
 ## `CSS combinator`
 
 **Type:** CSS selector
-**Introduced grade:** 2
 **Aliases:** descendant selector, child selector, sibling selector
 
 **Definition:**
@@ -1100,7 +1064,6 @@ parent and child elements, selector, nesting
 ## `display: none`
 
 **Type:** CSS value
-**Introduced grade:** 2
 **Aliases:** hidden with display
 
 **Definition:**
@@ -1129,7 +1092,6 @@ hidden, visibility, opacity
 ## `visibility`
 
 **Type:** CSS property
-**Introduced grade:** 2
 **Aliases:** `visibility: hidden`
 
 **Definition:**
@@ -1158,7 +1120,6 @@ display none, opacity
 ## `opacity`
 
 **Type:** CSS property
-**Introduced grade:** 2
 **Aliases:** transparency
 
 **Definition:**
@@ -1187,7 +1148,6 @@ visibility, display none, transition
 ## `pointer-events`
 
 **Type:** CSS property
-**Introduced grade:** 2
 **Aliases:** pointer events property
 
 **Definition:**
@@ -1216,7 +1176,6 @@ event, cursor, disabled
 ## `!important`
 
 **Type:** CSS syntax
-**Introduced grade:** 2
 **Aliases:** important declaration
 
 **Definition:**
@@ -1247,7 +1206,6 @@ cascade, specificity, source order
 ## `transition`
 
 **Type:** CSS property
-**Introduced grade:** 3
 **Aliases:** CSS transition
 
 **Definition:**
@@ -1278,7 +1236,6 @@ animation, transform, timing function
 ## `Transition timing`
 
 **Type:** CSS property
-**Introduced grade:** 3
 **Aliases:** `transition-duration`, `transition-delay`, `transition-timing-function`
 
 **Definition:**
@@ -1308,7 +1265,6 @@ transition, animation duration, reduced motion
 ## `transform`
 
 **Type:** CSS property
-**Introduced grade:** 3
 **Aliases:** CSS transform
 
 **Definition:**
@@ -1337,7 +1293,6 @@ button:hover {
 ## `Transform functions`
 
 **Type:** CSS function
-**Introduced grade:** 3
 **Aliases:** `translate()`, `translateX()`, `translateY()`, `scale()`, `rotate()`
 
 **Definition:**
@@ -1366,7 +1321,6 @@ transform, coordinate, animation
 ## `animation`
 
 **Type:** CSS property
-**Introduced grade:** 3
 **Aliases:** CSS animation
 
 **Definition:**
@@ -1395,7 +1349,6 @@ CSS animation applies a named `@keyframes` sequence to an element.
 ## `@keyframes`
 
 **Type:** CSS at-rule
-**Introduced grade:** 3
 **Aliases:** keyframes
 
 **Definition:**
@@ -1432,7 +1385,6 @@ animation, transform, opacity
 ## `Animation settings`
 
 **Type:** CSS property
-**Introduced grade:** 3
 **Aliases:** `animation-duration`, `animation-delay`, `animation-iteration-count`, `animation-fill-mode`
 
 **Definition:**
@@ -1463,7 +1415,6 @@ animation, transition timing, keyframes
 ## `prefers-reduced-motion`
 
 **Type:** CSS media feature
-**Introduced grade:** 3
 **Aliases:** reduced motion
 
 **Definition:**
@@ -1499,7 +1450,6 @@ media query, animation, accessibility
 ## `Flexbox`
 
 **Type:** CSS layout system
-**Introduced grade:** 4
 **Aliases:** flexible box layout, flex container
 
 **Definition:**
@@ -1529,7 +1479,6 @@ Flexbox arranges items primarily along one row or one column.
 ## `flex-direction`
 
 **Type:** CSS property
-**Introduced grade:** 4
 **Aliases:** flex direction
 
 **Definition:**
@@ -1559,7 +1508,6 @@ Flexbox, main axis, cross axis
 ## `justify-content`
 
 **Type:** CSS property
-**Introduced grade:** 4
 **Aliases:** flex main-axis alignment
 
 **Definition:**
@@ -1589,7 +1537,6 @@ Flexbox, `align-items`, main axis
 ## `align-items`
 
 **Type:** CSS property
-**Introduced grade:** 4
 **Aliases:** cross-axis alignment
 
 **Definition:**
@@ -1619,7 +1566,6 @@ Flexbox, `justify-content`, place-items
 ## `gap`
 
 **Type:** CSS property
-**Introduced grade:** 4
 **Aliases:** row gap, column gap
 
 **Definition:**
@@ -1649,7 +1595,6 @@ Flexbox, CSS Grid, margin
 ## `flex-wrap`
 
 **Type:** CSS property
-**Introduced grade:** 4
 **Aliases:** flex wrapping
 
 **Definition:**
@@ -1680,7 +1625,6 @@ Flexbox, responsive design
 ## `CSS Grid`
 
 **Type:** CSS layout system
-**Introduced grade:** 4
 **Aliases:** Grid layout
 
 **Definition:**
@@ -1710,7 +1654,6 @@ grid template, Flexbox, two-dimensional array
 ## `Grid template`
 
 **Type:** CSS property
-**Introduced grade:** 4
 **Aliases:** `grid-template-columns`, `grid-template-rows`
 
 **Definition:**
@@ -1740,7 +1683,6 @@ CSS Grid, `repeat()`, grid placement
 ## `Grid placement`
 
 **Type:** CSS property
-**Introduced grade:** 4
 **Aliases:** `grid-column`, `grid-row`, grid area
 
 **Definition:**
@@ -1770,7 +1712,6 @@ CSS Grid, coordinate, grid template
 ## `repeat()` and `minmax()`
 
 **Type:** CSS function
-**Introduced grade:** 4
 **Aliases:** `repeat()`, `minmax()`, `auto-fit`, `auto-fill`
 
 **Definition:**
@@ -1801,7 +1742,6 @@ CSS Grid, responsive design, grid template
 ## `overflow`
 
 **Type:** CSS property
-**Introduced grade:** 4
 **Aliases:** overflow-x, overflow-y
 
 **Definition:**
@@ -1830,7 +1770,6 @@ size properties, scrolling, clipping
 ## `:nth-child()`
 
 **Type:** CSS pseudo-class
-**Introduced grade:** 4
 **Aliases:** nth child
 
 **Definition:**
@@ -1861,7 +1800,6 @@ pseudo-class, parent and child elements, table
 ## `Custom property`
 
 **Type:** CSS concept
-**Introduced grade:** 5
 **Aliases:** CSS variable, `--custom-property`
 
 **Definition:**
@@ -1890,7 +1828,6 @@ A custom property stores a reusable CSS value under a name beginning with two hy
 ## `:root`
 
 **Type:** CSS pseudo-class
-**Introduced grade:** 5
 **Aliases:** root selector
 
 **Definition:**
@@ -1920,7 +1857,6 @@ custom property, scope, `var()`
 ## `var()`
 
 **Type:** CSS function
-**Introduced grade:** 5
 **Aliases:** CSS variable function
 
 **Definition:**
@@ -1955,7 +1891,6 @@ custom property, `:root`, CSS function
 ## `calc()`
 
 **Type:** CSS function
-**Introduced grade:** 5
 **Aliases:** CSS calculation
 
 **Definition:**
@@ -1984,7 +1919,6 @@ CSS unit, size properties, responsive design
 ## `min()`, `max()` and `clamp()`
 
 **Type:** CSS function
-**Introduced grade:** 5
 **Aliases:** `min()`, `max()`, `clamp()`
 
 **Definition:**
@@ -2017,7 +1951,6 @@ responsive design, CSS unit, size properties
 ## `Logical properties`
 
 **Type:** CSS concept
-**Introduced grade:** 5
 **Aliases:** `margin-inline`, `margin-block`, `padding-inline`, `padding-block`, `inset-inline`
 
 **Definition:**
@@ -2047,7 +1980,6 @@ internationalisation, margin, padding
 ## `currentColor`
 
 **Type:** CSS value
-**Introduced grade:** 5
 **Aliases:** current colour
 
 **Definition:**
@@ -2081,7 +2013,6 @@ colour properties, SVG, inheritance
 ## `accent-color`
 
 **Type:** CSS property
-**Introduced grade:** 5
 **Aliases:** form accent colour
 
 **Definition:**
@@ -2110,7 +2041,6 @@ checkbox, radio input, appearance
 ## `appearance`
 
 **Type:** CSS property
-**Introduced grade:** 5
 **Aliases:** native appearance
 
 **Definition:**
@@ -2141,7 +2071,6 @@ form controls, accessibility, accent-color
 ## `position`
 
 **Type:** CSS property
-**Introduced grade:** 6
 **Aliases:** positioned element
 
 **Definition:**
@@ -2170,7 +2099,6 @@ relative positioning, absolute positioning, inset, z-index
 ## `position: relative`
 
 **Type:** CSS value
-**Introduced grade:** 6
 **Aliases:** relative positioning
 
 **Definition:**
@@ -2199,7 +2127,6 @@ position, absolute positioning, containing block
 ## `position: absolute`
 
 **Type:** CSS value
-**Introduced grade:** 6
 **Aliases:** absolute positioning
 
 **Definition:**
@@ -2230,7 +2157,6 @@ position, relative positioning, inset, coordinate
 ## `position: fixed` and `position: sticky`
 
 **Type:** CSS value
-**Introduced grade:** 6
 **Aliases:** fixed positioning, sticky positioning
 
 **Definition:**
@@ -2260,7 +2186,6 @@ position, viewport, scroll container
 ## `Inset and stacking`
 
 **Type:** CSS property
-**Introduced grade:** 6
 **Aliases:** `top`, `right`, `bottom`, `left`, `inset`, `z-index`
 
 **Definition:**
@@ -2291,7 +2216,6 @@ position, stacking context, logical properties
 ## `aspect-ratio`
 
 **Type:** CSS property
-**Introduced grade:** 6
 **Aliases:** aspect ratio
 
 **Definition:**
@@ -2321,7 +2245,6 @@ size properties, responsive design
 ## `object-fit`
 
 **Type:** CSS property
-**Introduced grade:** 6
 **Aliases:** image fitting
 
 **Definition:**
@@ -2352,7 +2275,6 @@ image, size properties, aspect-ratio
 ## `transform-origin`
 
 **Type:** CSS property
-**Introduced grade:** 6
 **Aliases:** transformation origin
 
 **Definition:**
@@ -2383,7 +2305,6 @@ transform, rotate, scale
 ## `Media query`
 
 **Type:** CSS at-rule
-**Introduced grade:** 7
 **Aliases:** `@media`
 
 **Definition:**
@@ -2414,7 +2335,6 @@ breakpoint, responsive design, prefers-reduced-motion
 ## `Breakpoint`
 
 **Type:** CSS concept
-**Introduced grade:** 7
 **Aliases:** responsive breakpoint
 
 **Definition:**
@@ -2445,7 +2365,6 @@ media query, mobile-first, responsive design
 ## `Mobile-first`
 
 **Type:** CSS concept
-**Introduced grade:** 7
 **Aliases:** mobile-first CSS
 
 **Definition:**
@@ -2481,7 +2400,6 @@ media query, breakpoint, responsive design
 ## `@supports`
 
 **Type:** CSS at-rule
-**Introduced grade:** 7
 **Aliases:** feature query
 
 **Definition:**
@@ -2512,7 +2430,6 @@ browser compatibility, fallback, progressive enhancement
 ## `@layer`
 
 **Type:** CSS at-rule
-**Introduced grade:** 7
 **Aliases:** cascade layer
 
 **Definition:**
@@ -2545,7 +2462,6 @@ cascade, specificity, source order
 ## `@import`
 
 **Type:** CSS at-rule
-**Introduced grade:** 7
 **Aliases:** CSS import
 
 **Definition:**
@@ -2572,7 +2488,6 @@ stylesheet, cascade, module
 ## `CSS reset and normalisation`
 
 **Type:** CSS concept
-**Introduced grade:** 7
 **Aliases:** CSS reset, normalize, normalisation
 
 **Definition:**
@@ -2607,7 +2522,6 @@ browser default, box-sizing, stylesheet
 ## `Vendor prefix`
 
 **Type:** CSS syntax
-**Introduced grade:** 7
 **Aliases:** prefixed property, `-webkit-`
 
 **Definition:**
@@ -2634,7 +2548,6 @@ browser compatibility, build tool, fallback
 ## `Source order`
 
 **Type:** CSS concept
-**Introduced grade:** 7
 **Aliases:** order of appearance
 
 **Definition:**
@@ -2671,7 +2584,6 @@ cascade, specificity, `@layer`
 ## `Container query`
 
 **Type:** CSS concept
-**Introduced grade:** 8
 **Aliases:** container queries, `@container`
 
 **Definition:**
@@ -2706,7 +2618,6 @@ responsive design, media query, component
 ## `prefers-color-scheme`
 
 **Type:** CSS media feature
-**Introduced grade:** 8
 **Aliases:** preferred colour scheme, dark mode media query
 
 **Definition:**
@@ -2738,7 +2649,6 @@ media query, custom property, `color-scheme`
 ## `color-scheme`
 
 **Type:** CSS property
-**Introduced grade:** 8
 **Aliases:** colour scheme property
 
 **Definition:**
@@ -2767,7 +2677,6 @@ prefers-color-scheme, form controls, theme
 ## `CSS nesting`
 
 **Type:** CSS syntax
-**Introduced grade:** 8
 **Aliases:** nested CSS
 
 **Definition:**
@@ -2800,7 +2709,6 @@ selector, combinator, Sass
 ## `Pseudo-element`
 
 **Type:** CSS pseudo-element
-**Introduced grade:** 8
 **Aliases:** pseudo element
 
 **Definition:**
@@ -2829,7 +2737,6 @@ pseudo-class, `::before`, `content`
 ## `::before` and `::after`
 
 **Type:** CSS pseudo-element
-**Introduced grade:** 8
 **Aliases:** before pseudo-element, after pseudo-element
 
 **Definition:**
@@ -2858,7 +2765,6 @@ pseudo-element, `content`, accessibility
 ## `content`
 
 **Type:** CSS property
-**Introduced grade:** 8
 **Aliases:** generated content
 
 **Definition:**
@@ -2889,7 +2795,6 @@ pseudo-element, semantic HTML, accessibility
 ## `Critical CSS`
 
 **Type:** CSS performance concept
-**Introduced grade:** 9
 **Aliases:** above-the-fold CSS
 
 **Definition:**
@@ -2914,7 +2819,6 @@ performance, build, stylesheet
 ## `CSS containment`
 
 **Type:** CSS performance concept
-**Introduced grade:** 9
 **Aliases:** `contain`
 
 **Definition:**
@@ -2943,7 +2847,6 @@ performance, layout, paint
 ## `content-visibility`
 
 **Type:** CSS property
-**Introduced grade:** 9
 **Aliases:** content visibility
 
 **Definition:**
@@ -2972,7 +2875,6 @@ performance, containment, lazy loading
 ## `will-change`
 
 **Type:** CSS property
-**Introduced grade:** 9
 **Aliases:** will change
 
 **Definition:**
@@ -3001,7 +2903,6 @@ transform, performance, animation
 ## `Reflow and repaint`
 
 **Type:** CSS performance concept
-**Introduced grade:** 9
 **Aliases:** layout, reflow, paint, repaint
 
 **Definition:**

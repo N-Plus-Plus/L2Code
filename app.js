@@ -904,13 +904,15 @@ function getCategoryLabel(categoryId) {
 }
 
 function createCategoryIconMarkup(categoryId) {
-  if (categoryId === "html") {
-    return '<svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 9-4 3 4 3"></path><path d="m16 9 4 3-4 3"></path><path d="m14 5-4 14"></path></svg>';
-  }
-  if (categoryId === "css") {
-    return '<svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 8 21"></path><path d="M16 3 14 21"></path><path d="M4 9h16"></path><path d="M3 15h16"></path></svg>';
-  }
-  const icon = categoryId === "confused" ? "notebook-tabs" : categoryId === "javascript" ? "braces" : "book-marked";
+  const icon = categoryId === "html"
+    ? "code-xml"
+    : categoryId === "css"
+      ? "hash"
+      : categoryId === "confused"
+        ? "notebook-tabs"
+        : categoryId === "javascript"
+          ? "braces"
+          : "book-marked";
   return `<i data-lucide="${icon}" aria-hidden="true"></i>`;
 }
 
@@ -1216,6 +1218,11 @@ function renderMarkdown(markdown, options = {}) {
     if (block.startsWith("```")) {
       const code = block.replace(/^```[a-z]*\n?/i, "").replace(/```$/, "");
       return `<pre><code>${highlightCode(code)}</code></pre>`;
+    }
+
+    // Article metadata describes the entry; it should not become a wiki link.
+    if (/^\*\*Type:\*\*/i.test(block)) {
+      return `<p class="article-metadata">${inlineMarkdown(block, { accent }).replace(/\n/g, "<br>")}</p>`;
     }
 
     if (block.startsWith("* ")) {

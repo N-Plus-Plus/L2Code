@@ -4,7 +4,6 @@
 ## `HTML`
 
 **Type:** HTML concept
-**Introduced grade:** 1
 **Aliases:** HyperText Markup Language
 
 **Definition:**
@@ -34,7 +33,6 @@ HTML document, HTML element, CSS, JavaScript, DOM
 ## `HTML document`
 
 **Type:** HTML concept
-**Introduced grade:** 1
 **Aliases:** webpage source, HTML file
 
 **Definition:**
@@ -69,7 +67,6 @@ An HTML document is a text file containing the structure and content of a webpag
 ## `<!DOCTYPE html>`
 
 **Type:** HTML syntax
-**Introduced grade:** 1
 **Aliases:** doctype, document type declaration
 
 **Definition:**
@@ -96,7 +93,6 @@ HTML document, standards mode
 ## `HTML element`
 
 **Type:** HTML concept
-**Introduced grade:** 1
 **Aliases:** element
 
 **Definition:**
@@ -125,7 +121,6 @@ HTML tag, nesting, DOM, `document.querySelector()`
 ## `HTML tag`
 
 **Type:** HTML syntax
-**Introduced grade:** 1
 **Aliases:** tag
 
 **Definition:**
@@ -154,7 +149,6 @@ HTML element, opening tag, closing tag
 ## `Opening and closing tags`
 
 **Type:** HTML syntax
-**Introduced grade:** 1
 **Aliases:** opening tag, closing tag, end tag
 
 **Definition:**
@@ -181,7 +175,6 @@ HTML tag, void element, nesting
 ## `Nesting`
 
 **Type:** HTML concept
-**Introduced grade:** 1
 **Aliases:** nested elements
 
 **Definition:**
@@ -211,7 +204,6 @@ parent element, child element, DOM tree
 ## `Parent and child elements`
 
 **Type:** HTML concept
-**Introduced grade:** 1
 **Aliases:** parent element, child element, ancestor, descendant
 
 **Definition:**
@@ -242,7 +234,6 @@ nesting, DOM tree, descendant selector, child selector
 ## `HTML attribute`
 
 **Type:** HTML concept
-**Introduced grade:** 1
 **Aliases:** attribute
 
 **Definition:**
@@ -271,7 +262,6 @@ An attribute provides extra information or configuration for an HTML element.
 ## `id`
 
 **Type:** HTML attribute
-**Introduced grade:** 1
 **Aliases:** ID attribute
 
 **Definition:**
@@ -299,7 +289,6 @@ ID selector, `document.querySelector()`, `getElementById()`
 ## `class`
 
 **Type:** HTML attribute
-**Introduced grade:** 1
 **Aliases:** class attribute
 
 **Definition:**
@@ -328,7 +317,6 @@ class selector, `classList`, CSS selector
 ## `lang`
 
 **Type:** HTML attribute
-**Introduced grade:** 1
 **Aliases:** language attribute
 
 **Definition:**
@@ -355,7 +343,6 @@ The `lang` attribute identifies the language used by a document or element.
 ## `HTML document structure`
 
 **Type:** HTML concept
-**Introduced grade:** 1
 **Aliases:** `<html>`, `<head>`, `<body>`
 
 **Definition:**
@@ -390,7 +377,6 @@ HTML document, `<title>`, `<meta>`, `<main>`
 ## `<title>`
 
 **Type:** HTML element
-**Introduced grade:** 1
 **Aliases:** title element, page title
 
 **Definition:**
@@ -417,7 +403,6 @@ The `<title>` element defines the name displayed in the browser tab and commonly
 ## `<meta>`
 
 **Type:** HTML document metadata
-**Introduced grade:** 1
 **Aliases:** meta element, metadata
 
 **Definition:**
@@ -444,7 +429,6 @@ character encoding, viewport meta tag, `<head>`
 ## `Character encoding`
 
 **Type:** HTML document metadata
-**Introduced grade:** 1
 **Aliases:** charset, UTF-8
 
 **Definition:**
@@ -471,7 +455,6 @@ Character encoding defines how stored values represent written characters.
 ## `Viewport meta tag`
 
 **Type:** HTML document metadata
-**Introduced grade:** 1
 **Aliases:** viewport
 
 **Definition:**
@@ -501,7 +484,6 @@ responsive design, media query, viewport units
 ## `<link>`
 
 **Type:** HTML element
-**Introduced grade:** 1
 **Aliases:** link element
 
 **Definition:**
@@ -528,7 +510,6 @@ stylesheet, `rel`, `href`, `<a>`
 ## `href`
 
 **Type:** HTML attribute
-**Introduced grade:** 1
 **Aliases:** hyperlink reference
 
 **Definition:**
@@ -555,7 +536,6 @@ The `href` attribute specifies the destination or referenced resource for elemen
 ## `rel`
 
 **Type:** HTML attribute
-**Introduced grade:** 1
 **Aliases:** relationship attribute
 
 **Definition:**
@@ -582,7 +562,6 @@ The `rel` attribute describes the relationship between the current document and 
 ## `<script>`
 
 **Type:** HTML element
-**Introduced grade:** 1
 **Aliases:** script element
 
 **Definition:**
@@ -609,7 +588,6 @@ JavaScript, `src`, module script, `defer`, `async`
 ## `src`
 
 **Type:** HTML attribute
-**Introduced grade:** 1
 **Aliases:** source attribute
 
 **Definition:**
@@ -636,7 +614,6 @@ The `src` attribute identifies a resource that an element should load or embed.
 ## `<main>`
 
 **Type:** HTML element
-**Introduced grade:** 1
 **Aliases:** main element, main landmark
 
 **Definition:**
@@ -665,7 +642,6 @@ semantic HTML, landmark, `<body>`
 ## `Heading elements`
 
 **Type:** HTML element
-**Introduced grade:** 1
 **Aliases:** `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`
 
 **Definition:**
@@ -694,7 +670,6 @@ semantic HTML, document outline, `<title>`
 ## `<p>`
 
 **Type:** HTML element
-**Introduced grade:** 1
 **Aliases:** paragraph element
 
 **Definition:**
@@ -721,7 +696,6 @@ HTML element, margin, typography
 ## `<button>`
 
 **Type:** HTML element
-**Introduced grade:** 1
 **Aliases:** button element
 
 **Definition:**
@@ -750,7 +724,6 @@ event, `addEventListener()`, form submission, `type`
 ## `<label>`
 
 **Type:** HTML element
-**Introduced grade:** 1
 **Aliases:** label element
 
 **Definition:**
@@ -778,7 +751,6 @@ The `<label>` element provides a readable name for a form control.
 ## `<input>`
 
 **Type:** HTML element
-**Introduced grade:** 1
 **Aliases:** input element, input control
 
 **Definition:**
@@ -805,7 +777,6 @@ The `<input>` element accepts information from the user.
 ## `type`
 
 **Type:** HTML attribute
-**Introduced grade:** 1
 **Aliases:** type attribute
 
 **Definition:**
@@ -833,7 +804,6 @@ The `type` attribute selects the behaviour of certain elements, particularly `<i
 ## `HTML comment`
 
 **Type:** HTML syntax
-**Introduced grade:** 1
 **Aliases:** comment
 
 **Definition:**
@@ -861,7 +831,6 @@ source code, CSS comment, JavaScript comment
 ## `Relative path`
 
 **Type:** HTML concept
-**Introduced grade:** 1
 **Aliases:** relative URL, file path
 
 **Definition:**
@@ -892,7 +861,6 @@ URL, `href`, `src`, project folder
 ## `<form>`
 
 **Type:** HTML element
-**Introduced grade:** 2
 **Aliases:** form element
 
 **Definition:**
@@ -924,7 +892,6 @@ form submission, `<input>`, `<button>`, `preventDefault()`
 ## `Form submission`
 
 **Type:** HTML concept
-**Introduced grade:** 2
 **Aliases:** submit, submit button
 
 **Definition:**
@@ -955,7 +922,6 @@ form.addEventListener("submit", handleSubmit);
 ## `name`
 
 **Type:** HTML attribute
-**Introduced grade:** 2
 **Aliases:** name attribute
 
 **Definition:**
@@ -986,7 +952,6 @@ The `name` attribute identifies a form control’s value when form data is colle
 ## `value`
 
 **Type:** HTML attribute
-**Introduced grade:** 2
 **Aliases:** value attribute
 
 **Definition:**
@@ -1013,7 +978,6 @@ DOM property, `<input>`, `Number()`
 ## `Validation attributes`
 
 **Type:** HTML attribute
-**Introduced grade:** 2
 **Aliases:** `required`, `min`, `max`, `step`, `pattern`
 
 **Definition:**
@@ -1046,7 +1010,6 @@ validation, `:valid`, `:invalid`, `<form>`
 ## `disabled`
 
 **Type:** HTML attribute
-**Introduced grade:** 2
 **Aliases:** disabled attribute
 
 **Definition:**
@@ -1073,7 +1036,6 @@ The `disabled` attribute prevents a supported control from being activated or ed
 ## `<output>`
 
 **Type:** HTML element
-**Introduced grade:** 2
 **Aliases:** output element
 
 **Definition:**
@@ -1100,7 +1062,6 @@ output, form, `textContent`
 ## `aria-live`
 
 **Type:** HTML accessibility attribute
-**Introduced grade:** 2
 **Aliases:** live region
 
 **Definition:**
@@ -1131,7 +1092,6 @@ ARIA, accessibility, dynamic content
 ## `<progress>`
 
 **Type:** HTML element
-**Introduced grade:** 3
 **Aliases:** progress element
 
 **Definition:**
@@ -1158,7 +1118,6 @@ The `<progress>` element displays completion toward a known maximum.
 ## `<meter>`
 
 **Type:** HTML element
-**Introduced grade:** 3
 **Aliases:** meter element
 
 **Definition:**
@@ -1187,7 +1146,6 @@ The `<meter>` element displays a measurement within a known range.
 ## `hidden`
 
 **Type:** HTML attribute
-**Introduced grade:** 3
 **Aliases:** hidden attribute
 
 **Definition:**
@@ -1216,7 +1174,6 @@ The `hidden` attribute marks an element as not currently relevant for display.
 ## `data-* attributes`
 
 **Type:** HTML attribute
-**Introduced grade:** 3
 **Aliases:** custom data attribute, dataset
 
 **Definition:**
@@ -1253,7 +1210,6 @@ dataset, DOM, attribute
 ## `List elements`
 
 **Type:** HTML element
-**Introduced grade:** 4
 **Aliases:** `<ul>`, `<ol>`, `<li>`, unordered list, ordered list
 
 **Definition:**
@@ -1283,7 +1239,6 @@ array, collection, list-style
 ## `Table elements`
 
 **Type:** HTML element
-**Introduced grade:** 4
 **Aliases:** `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`
 
 **Definition:**
@@ -1323,7 +1278,6 @@ structured data, accessibility, CSS Grid
 ## `<template>`
 
 **Type:** HTML element
-**Introduced grade:** 4
 **Aliases:** template element
 
 **Definition:**
@@ -1354,7 +1308,6 @@ DOM, clone, render, collection
 ## `<details>` and `<summary>`
 
 **Type:** HTML element
-**Introduced grade:** 4
 **Aliases:** disclosure widget, details element, summary element
 
 **Definition:**
@@ -1386,7 +1339,6 @@ accordion, disclosure, accessibility
 ## `<select>` and `<option>`
 
 **Type:** HTML element
-**Introduced grade:** 5
 **Aliases:** select element, option element, dropdown
 
 **Definition:**
@@ -1416,7 +1368,6 @@ accordion, disclosure, accessibility
 ## `Checkbox and radio inputs`
 
 **Type:** HTML element
-**Introduced grade:** 5
 **Aliases:** checkbox, radio button, `type="checkbox"`, `type="radio"`
 
 **Definition:**
@@ -1453,7 +1404,6 @@ Boolean, checked, `<label>`, form controls
 ## `<fieldset>` and `<legend>`
 
 **Type:** HTML element
-**Introduced grade:** 5
 **Aliases:** fieldset element, legend element
 
 **Definition:**
@@ -1487,7 +1437,6 @@ form, accessibility, radio input
 ## `autocomplete`
 
 **Type:** HTML attribute
-**Introduced grade:** 5
 **Aliases:** autocomplete attribute
 
 **Definition:**
@@ -1520,7 +1469,6 @@ form, input, accessibility
 ## `<canvas>`
 
 **Type:** HTML element
-**Introduced grade:** 6
 **Aliases:** canvas element
 
 **Definition:**
@@ -1551,7 +1499,6 @@ Canvas API, game loop, coordinate, render
 ## `SVG`
 
 **Type:** HTML concept
-**Introduced grade:** 6
 **Aliases:** Scalable Vector Graphics, `<svg>`
 
 **Definition:**
@@ -1580,7 +1527,6 @@ SVG is markup for drawing scalable vector shapes within a webpage.
 ## `SVG basic shapes`
 
 **Type:** SVG element
-**Introduced grade:** 6
 **Aliases:** `<circle>`, `<rect>`, `<line>`, `<polyline>`, `<polygon>`, `<path>`
 
 **Definition:**
@@ -1609,7 +1555,6 @@ SVG, `viewBox`, coordinate, path data
 ## `viewBox`
 
 **Type:** SVG attribute
-**Introduced grade:** 6
 **Aliases:** SVG view box
 
 **Definition:**
@@ -1644,7 +1589,6 @@ SVG, coordinate system, responsive graphics
 ## `Semantic HTML`
 
 **Type:** HTML concept
-**Introduced grade:** 7
 **Aliases:** semantic elements, semantic markup
 
 **Definition:**
@@ -1674,7 +1618,6 @@ landmark elements, accessibility, `<section>`, `<article>`
 ## `Landmark elements`
 
 **Type:** HTML element
-**Introduced grade:** 7
 **Aliases:** `<header>`, `<nav>`, `<main>`, `<aside>`, `<footer>`, landmarks
 
 **Definition:**
@@ -1704,7 +1647,6 @@ semantic HTML, ARIA, accessibility
 ## `<section>` and `<article>`
 
 **Type:** HTML element
-**Introduced grade:** 7
 **Aliases:** section element, article element
 
 **Definition:**
@@ -1737,7 +1679,6 @@ semantic HTML, heading elements, landmark
 ## `ARIA`
 
 **Type:** HTML accessibility concept
-**Introduced grade:** 7
 **Aliases:** Accessible Rich Internet Applications
 
 **Definition:**
@@ -1769,7 +1710,6 @@ ARIA provides additional accessibility information when native HTML alone cannot
 ## `role`
 
 **Type:** HTML accessibility attribute
-**Introduced grade:** 7
 **Aliases:** ARIA role
 
 **Definition:**
@@ -1796,7 +1736,6 @@ ARIA, semantic HTML, accessibility
 ## `alt`
 
 **Type:** HTML accessibility attribute
-**Introduced grade:** 7
 **Aliases:** alternative text, alt attribute
 
 **Definition:**
@@ -1826,7 +1765,6 @@ The `alt` attribute provides a text alternative for an image.
 ## `tabindex`
 
 **Type:** HTML accessibility attribute
-**Introduced grade:** 7
 **Aliases:** tab index
 
 **Definition:**
@@ -1854,7 +1792,6 @@ keyboard accessibility, focus, `:focus-visible`
 ## `Module script`
 
 **Type:** HTML syntax
-**Introduced grade:** 7
 **Aliases:** `type="module"`, JavaScript module
 
 **Definition:**
@@ -1881,7 +1818,6 @@ module, `import`, `export`, scope
 ## `defer`
 
 **Type:** HTML attribute
-**Introduced grade:** 7
 **Aliases:** deferred script
 
 **Definition:**
@@ -1908,7 +1844,6 @@ The `defer` attribute downloads an external script without blocking HTML parsing
 ## `async`
 
 **Type:** HTML attribute
-**Introduced grade:** 7
 **Aliases:** asynchronous script attribute
 
 **Definition:**
@@ -1937,7 +1872,6 @@ The `async` attribute downloads an external script without blocking HTML parsing
 ## `<dialog>`
 
 **Type:** HTML element
-**Introduced grade:** 8
 **Aliases:** dialog element, modal dialog
 
 **Definition:**
@@ -1973,7 +1907,6 @@ modal, focus management, `showModal()`
 ## `<figure>` and `<figcaption>`
 
 **Type:** HTML element
-**Introduced grade:** 8
 **Aliases:** figure element, figcaption element
 
 **Definition:**
@@ -2003,7 +1936,6 @@ image, alt, semantic HTML
 ## `Responsive images`
 
 **Type:** HTML concept
-**Introduced grade:** 8
 **Aliases:** `<picture>`, `<source>`, `srcset`, `sizes`
 
 **Definition:**
@@ -2038,7 +1970,6 @@ responsive design, `<picture>`, lazy loading
 ## `Media elements`
 
 **Type:** HTML element
-**Introduced grade:** 8
 **Aliases:** `<audio>`, `<video>`, `<track>`
 
 **Definition:**
@@ -2072,7 +2003,6 @@ accessibility, source element, captions
 ## `<noscript>`
 
 **Type:** HTML element
-**Introduced grade:** 8
 **Aliases:** noscript element
 
 **Definition:**
@@ -2103,7 +2033,6 @@ JavaScript, fallback, progressive enhancement
 ## `Lazy loading`
 
 **Type:** HTML attribute
-**Introduced grade:** 9
 **Aliases:** `loading="lazy"`
 
 **Definition:**
@@ -2134,7 +2063,6 @@ performance, responsive images, network request
 ## `decoding`
 
 **Type:** HTML attribute
-**Introduced grade:** 9
 **Aliases:** image decoding hint
 
 **Definition:**
@@ -2165,7 +2093,6 @@ image, performance, asynchronous
 ## `inert`
 
 **Type:** HTML attribute
-**Introduced grade:** 9
 **Aliases:** inert attribute
 
 **Definition:**

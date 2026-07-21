@@ -2070,14 +2070,14 @@ svg {
   border-radius: var(--radius-container) var(--radius-container) 0 0;
   background: #222;
   border-bottom: 1px solid rgb(255 255 255 / 0.1);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .panel-heading__title {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 10px;
+  display: grid;
+  flex: 0 0 auto;
+  align-items: start;
+  gap: 2px;
 }
 
 .panel-heading h2 {
@@ -2098,16 +2098,20 @@ svg {
 
 .panel-heading__actions {
   display: flex;
+  flex: 1 1 auto;
   align-items: center;
   justify-content: flex-end;
   gap: 10px;
   margin-left: auto;
   min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
 }
 
 .group-filter {
   display: flex;
-  flex-wrap: wrap;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-end;
   gap: 4px;

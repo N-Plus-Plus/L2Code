@@ -34,13 +34,23 @@ const htmlEntries = parser.parseGlossary(htmlMarkdown, { source: "html" });
 const cssEntries = parser.parseGlossary(cssMarkdown, { source: "css" });
 const confusedEntries = parser.parseGlossary(confusedMarkdown, { source: "confused" });
 
-test("category filters retain the requested order and generated HTML/CSS icons", () => {
+test("category filters retain the requested order and use Lucide HTML/CSS icons", () => {
   const categoryOrder = Array.from(indexSource.matchAll(/data-category="([^"]+)"/g), (match) => match[1]);
   assert.deepEqual(categoryOrder, ["general", "confused", "javascript", "html", "css"]);
-  assert.match(indexSource, /m8 9-4 3 4 3/);
-  assert.match(indexSource, /M10 3 8 21/);
+  assert.match(indexSource, /data-category="html"[^]*data-lucide="code-xml"/);
+  assert.match(indexSource, /data-category="css"[^]*data-lucide="hash"/);
   assert.match(appSource, /function createCategoryIconMarkup/);
-  assert.doesNotMatch(indexSource, /html-icons|css-icons/i);
+  assert.doesNotMatch(indexSource, /data-category="html"[^]*<svg/);
+});
+
+test("entry title and count stack beside a single-row category filter", () => {
+  const styles = read("style.css");
+  const headingStyles = sourceBetween(styles, ".panel-heading {", ".panel-heading__title {");
+  const titleStyles = sourceBetween(styles, ".panel-heading__title {", ".panel-heading h2 {");
+  const filterStyles = sourceBetween(styles, ".group-filter {", ".results-scroll {");
+  assert.match(headingStyles, /flex-wrap:\s*nowrap/);
+  assert.match(titleStyles, /display:\s*grid/);
+  assert.match(filterStyles, /flex-wrap:\s*nowrap/);
 });
 
 test("all supplied HTML and CSS articles parse with teaching metadata", () => {
@@ -49,8 +59,10 @@ test("all supplied HTML and CSS articles parse with teaching metadata", () => {
   assert.equal(confusedEntries.length, 20);
   assert.equal(htmlEntries.every((entry) => entry.categoryId === "html"), true);
   assert.equal(cssEntries.every((entry) => entry.categoryId === "css"), true);
-  assert.equal(htmlEntries.every((entry) => entry.type && entry.introducedGrade), true);
-  assert.equal(cssEntries.every((entry) => entry.type && entry.introducedGrade), true);
+  assert.equal(htmlEntries.every((entry) => entry.type && entry.introducedGrade === null), true);
+  assert.equal(cssEntries.every((entry) => entry.type && entry.introducedGrade === null), true);
+  assert.doesNotMatch(htmlMarkdown, /\*\*Introduced grade:\*\*/);
+  assert.doesNotMatch(cssMarkdown, /\*\*Introduced grade:\*\*/);
 });
 
 test("search terms include titles, aliases, plain tag names and symbol syntax", () => {
@@ -98,6 +110,13 @@ test("HTML and CSS examples remain escaped code, never live markup or styles", (
   assert.match(appSource, /if \(\["A", "CODE", "PRE", "SCRIPT", "STYLE"\]\.includes\(child\.tagName\)\) continue/);
   assert.match(htmlMarkdown, /```html\s+<h1>Magic 8-Ball<\/h1>/);
   assert.match(cssMarkdown, /```css\s+body \{/);
+});
+
+test("article Type metadata is rendered without automatic vocabulary links", () => {
+  assert.equal(appSource.includes('if (/^\\*\\*Type:\\*\\*/i.test(block))'), true);
+  assert.match(appSource, /class="article-metadata"/);
+  const typeBranch = sourceBetween(appSource, "if (/^\\*\\*Type:", "if (block.startsWith(\"* \"))");
+  assert.doesNotMatch(typeBranch, /linkVocabulary:\s*true/);
 });
 
 test("context-aware links prefer the current category and explicit relations win", () => {
