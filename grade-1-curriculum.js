@@ -13,6 +13,7 @@ const grade1Curriculum = {
   grade: 1,
   title: "Grade 1",
   subtitle: "First Interactive Programs",
+  allowMultipleSections: true,
   purpose: [
     "Grade 1 introduces the basic building blocks used to make a webpage respond to a user. The objective is not to learn a large amount of JavaScript syntax. It is to become comfortable creating a project, connecting its files, changing information and producing a visible result."
   ],

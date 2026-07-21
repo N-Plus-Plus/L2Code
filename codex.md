@@ -10,7 +10,8 @@ Static GitHub Pages-ready glossary app for a general programming vocabulary refe
 - `javascript.md` is the source JavaScript-specific vocabulary payload in Markdown.
 - `data.js` is generated from `data.md` and `javascript.md` so direct file opening works without local server fetch restrictions.
 - `app.js` reads `data.js` first, falls back to fetching `data.md` and `javascript.md`, parses `##` term sections, filters by term prefix, and renders clickable result/detail views.
-- `grade-1-curriculum.js` contains the structured Grade 1 Learning Modules curriculum; `app.js` safely renders its headings, lists, quotations, callouts, flows, and labelled code blocks.
+- `grade-1-curriculum.js` and `grade-2-curriculum.js` contain the structured Learning Modules curricula; `app.js` safely renders their headings, lists, quotations, callouts, flows, and labelled code blocks.
+- `curriculum.test.js` uses Node's built-in test runner for curriculum ordering, shared accordion behaviour, and safe code rendering checks.
 - JavaScript entries append after the general glossary, use unique source-prefixed internal IDs so duplicate visible names are allowed, and render with the `braces` icon in grass green.
 - JavaScript entries from `Common JavaScript Operators` onward remain in the syntax filter group and still use `braces`, but render mint/emerald and search from any word in a multi-word title.
 - Entries under `Commonly Confused JavaScript Terms` stay at the end of the JavaScript sequence, render as similar/comparison rows, and are included when either the syntax or similar filter is enabled.

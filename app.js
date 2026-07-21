@@ -413,8 +413,9 @@ const learningGrades = [
     ]
   },
   grade1Curriculum,
-  ...Array.from({ length: 8 }, (_, index) => {
-    const gradeNumber = index + 2;
+  grade2Curriculum,
+  ...Array.from({ length: 7 }, (_, index) => {
+    const gradeNumber = index + 3;
     return {
       id: `grade-${gradeNumber}`,
       grade: gradeNumber,
@@ -553,7 +554,7 @@ function bindEvents() {
     const isOpeningSection = !state.expandedSectionIds.has(sectionId);
     if (state.expandedSectionIds.has(sectionId)) {
       state.expandedSectionIds.delete(sectionId);
-    } else if (state.selectedGradeId === "grade-1") {
+    } else if (selectedGradeAllowsMultipleSections()) {
       state.expandedSectionIds.add(sectionId);
     } else {
       state.expandedSectionIds = new Set([sectionId]);
@@ -562,6 +563,11 @@ function bindEvents() {
     if (isOpeningSection) scrollLearningPanelToSection(sectionId);
     refreshIcons();
   });
+}
+
+function selectedGradeAllowsMultipleSections() {
+  const selectedGrade = learningGrades.find((grade) => grade.id === state.selectedGradeId);
+  return Boolean(selectedGrade && selectedGrade.allowMultipleSections);
 }
 
 function resetLearningPanelScroll() {
