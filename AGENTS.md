@@ -2,6 +2,10 @@
 
 Static GitHub Pages-ready glossary app for a general programming vocabulary reference.
 
+This project is a Git repository and may be treated as a normal Git worktree for inspection and version-control operations.
+
+`AGENTS.md` is the root entry guide for this project.
+
 ## Shape
 - No framework, build step, Vite, package manager, or backend.
 - `index.html` is the app shell and loads Lucide from CDN.
@@ -27,4 +31,4 @@ Static GitHub Pages-ready glossary app for a general programming vocabulary refe
 - Regenerate `data.js` after changing `data.md` or `javascript.md`.
 - Prefer small, direct changes; this is intentionally a simple reference app.
 
-Future agents: update this document at the end of any pass that makes the content of `codex.md` materially incorrect or incomplete, but keep it brief.
+Future agents: update this document at the end of any pass that makes the content of `AGENTS.md` materially incorrect or incomplete, but keep it brief.
