@@ -1,34 +1,42 @@
-# L2Code Vocabulary Reference
+# L2Code agent guidance
 
-Static GitHub Pages-ready glossary app for a general programming vocabulary reference.
+L2Code is a static programming vocabulary reference and beginner learning app. Keep its plain HTML, CSS and browser JavaScript design; no framework, build step, package manager or backend.
 
-This project is a Git repository and may be treated as a normal Git worktree for inspection and version-control operations.
+## Authority and scope
 
-`AGENTS.md` is the root entry guide for this project.
+Current user instructions and accepted decisions take priority, followed by this guide, the relevant specialist authority and verified source. Historical material is reference only. Source does not prove a live deployment or user acceptance.
 
-## Shape
-- No framework, build step, Vite, package manager, or backend.
-- `index.html` is the app shell and loads Lucide from CDN.
-- `style.css` starts from the supplied fresh-project dark UI stylesheet and includes local app-specific rules at the end.
-- `data.md` is the source vocabulary payload in Markdown.
-- `javascript.md` is the source JavaScript-specific vocabulary payload in Markdown.
-- `data.js` is generated from `data.md` and `javascript.md` so direct file opening works without local server fetch restrictions.
-- `app.js` reads `data.js` first, falls back to fetching `data.md` and `javascript.md`, parses `##` term sections, filters by term prefix, and renders clickable result/detail views.
-- `grade-1-curriculum.js` and `grade-2-curriculum.js` contain the structured Learning Modules curricula; `app.js` safely renders their headings, lists, quotations, callouts, flows, and labelled code blocks.
-- `curriculum.test.js` uses Node's built-in test runner for curriculum ordering, shared accordion behaviour, and safe code rendering checks.
-- JavaScript entries append after the general glossary, use unique source-prefixed internal IDs so duplicate visible names are allowed, and render with the `braces` icon in grass green.
-- JavaScript entries from `Common JavaScript Operators` onward remain in the syntax filter group and still use `braces`, but render mint/emerald and search from any word in a multi-word title.
-- Entries under `Commonly Confused JavaScript Terms` stay at the end of the JavaScript sequence, render as similar/comparison rows, and are included when either the syntax or similar filter is enabled.
-- Entries under `Commonly Confused Terms` are bundled comparison records: titles use ` != ` separators, rows use the `notebook-tabs` icon in mandarin/orange, and search matches from the start of each separated term segment.
-- No term is selected by default; the detail pane shows a static "How to Use This Reference" intro until the user chooses a result.
-- The Terms heading is sticky inside the scrollable results pane. Its icon-only group filters default on: general terms use `book-marked`/lavender, similar terms use `notebook-tabs`/mandarin, and JavaScript syntax terms use `braces`/grass.
+Complete the requested outcome and necessary adjacent correctness work, then stop. No unsolicited audits, upgrades, speculative refactors, report files or roadmap additions. Preserve user changes. Do not commit, push, publish, change remote settings or alter production resources without explicit task authorisation.
 
-## Constraints
-- Keep it static: plain HTML, CSS, and browser JavaScript only.
-- Use Lucide icons for functional controls and result affordances.
-- Preserve `data.md` as the source of truth unless the user asks for a different data format.
-- Preserve `javascript.md` as the JavaScript vocabulary source of truth.
-- Regenerate `data.js` after changing `data.md` or `javascript.md`.
-- Prefer small, direct changes; this is intentionally a simple reference app.
+Ask before materially ambiguous product decisions or destructive consequences. Resolve ordinary implementation choices independently; do not introduce approval gates for trivial reversible edits.
 
-Future agents: update this document at the end of any pass that makes the content of `AGENTS.md` materially incorrect or incomplete, but keep it brief.
+## Working discipline
+
+Read this guide at task start; inspect branch, worktree and relevant changes. Work from local state and targeted file/symbol searches. Read only the owning passages below. Reuse accepted functionality and earlier findings unless current evidence, changed dependencies or a requested review warrants reopening them. Recover task state after compaction rather than restarting investigation.
+
+Make one small coherent change at a time. Preserve unrelated behaviour, accessibility and visual conventions. For a substantial new journey, show the first usable slice for review before broad polish. Check only affected interactions and layouts.
+
+## Checks and release boundaries
+
+Test authoring and test execution are separate decisions. Extend focused existing coverage for meaningful parser/rendering logic or reproducible regressions when needed; do not add harnesses for labels, icons or CSS. After a coherent edit, execute the smallest useful check. Documentation changes need link/path/diff inspection, not application tests.
+
+Use the existing Node test entry point for release verification as described in [TESTING](docs/TESTING.md#release-check). Do not run it reflexively after every prompt, commit or push. Reuse a successful result when relevant inputs are unchanged. Stop and report a failed or timed-out release gate before retrying or expanding it.
+
+Keep secrets, private exports and personal data out of public assets, logs and Git. This app has no database or authentication; do not introduce production migration machinery for static edits. Any future data/security boundary needs its own reviewed safeguards and explicit live-change authorisation.
+
+## Targeted routing
+
+| Concern | Entry points | Owning authority / passage |
+| --- | --- | --- |
+| Local launch and confirmed state | index.html | [README](README.md#current-state), [local launch](README.md#start-locally) |
+| Runtime and file ownership | index.html, app.js | [ARCHITECTURE](docs/ARCHITECTURE.md#ownership-and-flow) |
+| Vocabulary sources and generated payload | five vocabulary Markdown files, data.js | [DATA](docs/DATA.md#sources-and-generation) |
+| Search, categories and safe rendering | app.js, curricula | [CONTRACTS](docs/CONTRACTS.md#vocabulary-contracts) |
+| Visual language | style.css, index.html | [STYLE](STYLE.md#visual-foundation) |
+| Learning and reference journeys | app.js | [USER_EXPERIENCE](USER_EXPERIENCE.md#current-journeys) |
+| CDN dependencies | index.html | [INTEGRATIONS](docs/INTEGRATIONS.md#dependencies) |
+| Focused checks | curriculum.test.js, vocabulary.test.js | [TESTING](docs/TESTING.md#development-checks) |
+| Publication and recovery | static runtime files | [DEPLOYMENT](docs/DEPLOYMENT.md#release-boundary) |
+| Approved future outcomes | none | [ROADMAP](ROADMAP.md#approved-work) |
+
+Update only the owning authority when enduring rules change. Keep this map accurate, but avoid per-pass documentation churn. README alone records material source/live/acceptance state. Inspect the focused diff and report actual checks, limitations and outcome concisely.
