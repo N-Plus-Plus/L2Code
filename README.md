@@ -36,3 +36,11 @@ The HTML shell loads the embedded vocabulary, two curriculum files and app.js. T
 ## Documentation map
 
 Start with [AGENTS](AGENTS.md) for targeted routing. [STYLE](STYLE.md) owns visual conventions; [USER_EXPERIENCE](USER_EXPERIENCE.md) owns journeys; [ROADMAP](ROADMAP.md) holds approved future outcomes. Specialist authorities: [ARCHITECTURE](docs/ARCHITECTURE.md), [DATA](docs/DATA.md), [CONTRACTS](docs/CONTRACTS.md), [INTEGRATIONS](docs/INTEGRATIONS.md), [TESTING](docs/TESTING.md), [DEPLOYMENT](docs/DEPLOYMENT.md).
+
+## Standard local launch
+
+Canonical checkout: L2Code. Run `node scripts/serve.mjs` (or `start-local.bat`) and open http://127.0.0.1:10160/ . Only public assets are served; an occupied port fails without terminating its owner. Browser state and provider redirect allowlists require manual acceptance on the new origin.
+
+## Local directory and listener contract
+
+Canonical checkout: `L2Code`. Primary local default: **10160**. Service ID `l2code`, repository name, display name and external data locations remain unchanged. Port configuration does not migrate browser origin storage or external OAuth allowlists; those require individual acceptance. Never terminate an unidentified listener to free a port.
