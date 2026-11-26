@@ -4,7 +4,7 @@
 
 | Dependency | Purpose / owner | Credentials | Local or outage behaviour |
 | --- | --- | --- | --- |
-| unpkg Lucide UMD at @latest | Functional icons; index.html and app.js refreshIcons | None | Icon refresh guards missing window.lucide; no bundled substitute |
+| unpkg Lucide UMD 1.79.0 | Functional icons; index.html and app.js refreshIcons | None | Icon refresh guards missing window.lucide; no bundled substitute |
 | Google Fonts / fonts.gstatic.com | Lexend Deca; index.html | None | style.css supplies system font fallbacks |
 | Same-origin Markdown files | Vocabulary fallback; app.js fetchMarkdown | None | Embedded data.js normally avoids fetching; non-OK response fails initialisation |
 | Static hosting | Public file delivery | Provider administration only, outside app | Direct index.html opening; hosted settings unconfirmed |
